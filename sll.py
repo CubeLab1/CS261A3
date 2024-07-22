@@ -156,8 +156,12 @@ class LinkedList:
         sliced_list = LinkedList()
         current = self._head.next
         for _ in range(start_index):
+            if current is None:
+                raise SLLException("Index out of bounds")
             current = current.next
         for _ in range(size):
+            if current is None:
+                raise SLLException("Index out of bounds")
             sliced_list.insert_back(current.value)
             current = current.next
         return sliced_list
